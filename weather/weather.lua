@@ -1,4 +1,4 @@
-local urlApi = 'https://www.tianqiapi.com/api/?version=v1'
+local urlApi = 'https://www.yiketianqi.com/free/day?appid=32961884&appsecret=cGYBB9W1&unescape=1&cityid=101020100'
 local menubar = hs.menubar.new()
 local menuData = {}
 
@@ -27,22 +27,15 @@ function getWeather()
          print('get weather error:'..code)
          return
       end
-      rawjson = hs.json.decode(body)
-      city = rawjson.city
+      wi = hs.json.decode(body)
       menuData = {}
-      for k, v in pairs(rawjson.data) do
-         if k == 1 then
-            menubar:setTitle(weaEmoji[v.wea_img])
-            titlestr = string.format("%s %s %s 🌡️%s 💧%s 💨%s 🌬 %s %s", city,weaEmoji[v.wea_img],v.day, v.tem, v.humidity, v.air, v.win_speed, v.wea)
-            item = { title = titlestr }
-            table.insert(menuData, item)
-            table.insert(menuData, {title = '-'})
-         else
-            -- titlestr = string.format("%s %s %s %s", v.day, v.wea, v.tem, v.win_speed)
-            titlestr = string.format("%s %s %s 🌡️%s 🌬%s %s", city, weaEmoji[v.wea_img],v.day, v.tem, v.win_speed, v.wea)
-            item = { title = titlestr }
-            table.insert(menuData, item)
-         end
+      weaEmo = weaEmoji[wi.wea_img]
+      if wi ~= "nil" then 
+         menubar:setTitle(weaEmoji[wi.wea_img])
+         titlestr = string.format("%s %s %s 🌡️%s 💧%s 💨%s 🌬 %s %s", wi.date,wi.city,weaEmo, wi.tem, wi.humidity, wi.air, wi.win_speed, wi.wea)
+         item = { title = titlestr }
+         table.insert(menuData, item)
+         table.insert(menuData, {title = '-'})
       end
       updateMenubar()
    end)

@@ -10,7 +10,7 @@ end
 local app2Ime = {
     {'/Applications/iTerm.app', 'English'},
     {'/Applications/Xcode.app', 'English'},
-    {'/Applications/Google Chrome.app', 'Chinese'},
+    {'/Applications/Google Chrome.app', 'English'},
     {'/System/Library/CoreServices/Finder.app', 'English'},
     {'/Applications/DingTalk.app', 'Chinese'},
     {'/Applications/Kindle.app', 'English'},
@@ -22,6 +22,7 @@ local app2Ime = {
     {'/Applications/Preview.app', 'Chinese'},
     {'/Applications/wechatwebdevtools.app', 'English'},
     {'/Applications/Sketch.app', 'English'},
+    {'/Applications/Visual Studio Code.app', 'Chinese'},
 }
 
 function updateFocusAppInputMethod()

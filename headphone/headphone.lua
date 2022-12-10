@@ -1,6 +1,6 @@
 
 -- SONY MDR-1000X
-local bleDeviceID = '04-5d-4b-52-d0-0a'
+local bleDeviceID = 'd4-4b-b6-7d-95-fe'
 
 
 function bluetoothSwitch(state)
