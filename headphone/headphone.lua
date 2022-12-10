@@ -15,9 +15,20 @@ function disconnectBluetooth()
   result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
 end
 
-function connectBluetooth()
+local function connectBluetooth(retry)
   cmd = "/usr/local/bin/blueutil --connect "..(bleDeviceID)
   result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
+  if result then 
+    print("connect bluetooth success. ")
+  else 
+    if retry >= 3 then 
+      print("Reconnect bluetooth more than max times.")
+      return
+    end
+    print("reconnect bluethooth in 3 seconds!")
+    os.execute("sleep " .. 3)
+    connectBluetooth(retry+1)
+  end
 end
 
 function caffeinateCallback(eventType)
@@ -30,9 +41,10 @@ function caffeinateCallback(eventType)
       disconnectBluetooth()
     elseif (eventType == hs.caffeinate.watcher.screensDidUnlock) then
       print("screensDidUnlock")
-      connectBluetooth()
+      connectBluetooth(0)
     end
 end
 
+connectBluetooth(0)
 caffeinateWatcher = hs.caffeinate.watcher.new(caffeinateCallback)
 caffeinateWatcher:start()
