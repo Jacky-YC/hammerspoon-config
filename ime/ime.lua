@@ -15,14 +15,15 @@ local app2Ime = {
     {'/Applications/DingTalk.app', 'Chinese'},
     {'/Applications/Kindle.app', 'English'},
     {'/Applications/NeteaseMusic.app', 'Chinese'},
-    {'/Applications/微信.app', 'Chinese'},
+    {'/Applications/WeChat.app', 'Chinese'},
     {'/Applications/System Preferences.app', 'English'},
     {'/Applications/Dash.app', 'English'},
     {'/Applications/MindNode.app', 'Chinese'},
     {'/Applications/Preview.app', 'Chinese'},
     {'/Applications/wechatwebdevtools.app', 'English'},
     {'/Applications/Sketch.app', 'English'},
-    {'/Applications/Visual Studio Code.app', 'Chinese'},
+    {'/Applications/Visual Studio Code.app', 'English'},
+    {'/Applications/iTerm.app', 'English'},
 }
 
 function updateFocusAppInputMethod()
