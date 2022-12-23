@@ -20,6 +20,8 @@ local function connectBluetooth(retry)
   result = hs.osascript.applescript(string.format('do shell script "%s"', cmd))
   if result then 
     print("connect bluetooth success. ")
+    speaker = hs.speech.new()
+    speaker:speak("方糖已连接!")
   else 
     if retry >= 3 then 
       print("Reconnect bluetooth more than max times.")

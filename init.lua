@@ -9,7 +9,7 @@ require "clipboard.clipboard"
 require "statuslets.statuslets"
 require "volume.volume"
 require "weather.weather"
-require "speaker.speaker"
+-- require "speaker.speaker"
 print('==================================================')
 require "headphone.headphone"
 print('==================================================')
